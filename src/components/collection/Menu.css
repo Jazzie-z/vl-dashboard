@@ -1,10 +1,17 @@
-.logo{
-    background: white;
-    border-radius: 50px;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+.header {
+  background: #5c0099 !important;
+  box-shadow: 0 3px 3px rgb(0 0 0 / 40%);
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  background: white;
+  border-radius: 50px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

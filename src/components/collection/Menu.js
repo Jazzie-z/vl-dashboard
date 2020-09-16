@@ -1,12 +1,20 @@
-import React from 'react'
-import { Image, Layout } from 'antd'
-import logo from 'assets/images/logo_2.png'
-import './Menu.css'
+import React from "react";
+import { Button, Layout } from "antd";
+import logo from "assets/images/logo_2.png";
+import AuthService from "services/auth.service";
+import "./Menu.css";
+
+const auth = new AuthService();
 export const Menu = () => {
-    return (
-        <Layout.Header style={{ background: '#5c0099',    boxShadow: '0 3px 3px rgb(0 0 0 / 40%)',
-        zIndex: 5 }}>
-            <Image src={logo} className={'logo'} />
-        </Layout.Header>
-    )
-}
+  const onLogout = () => {
+    auth.signOut();
+  };
+  return (
+    <Layout.Header className="header">
+      <img src={logo} className={"logo"} alt={"logo"} />
+      <Button className="logout" type="primary" danger onClick={onLogout}>
+        Logout
+      </Button>
+    </Layout.Header>
+  );
+};

@@ -1,1 +1,1 @@
-export const isSignedIn = () => false
+export const isSignedIn = () => false;

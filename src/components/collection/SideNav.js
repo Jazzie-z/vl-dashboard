@@ -1,22 +1,34 @@
-import React from 'react'
-import { Menu } from 'antd';
-import { Link, useHistory } from 'react-router-dom';
+import React from "react";
+import { Menu } from "antd";
+import { Link, useHistory } from "react-router-dom";
+
 export const SideNav = () => {
-    const history = useHistory()
-    const activeKey = history.location.pathname;
-    return (
-        <Menu
-            mode="inline"
-            defaultSelectedKeys={[activeKey]}
-            style={{ height: '100%', borderRight: 0, paddingTop: 20, fontWeight:'500' }}
-        >
-            <Menu.Item key={'/'}>
-                <Link to="/">List Items</Link>
-            </Menu.Item>
-            <Menu.Item key={'/add'}>
-                <Link to="/add">Add Item</Link>
-            </Menu.Item>
-            <Menu.Item >Logout</Menu.Item>
-        </Menu>
-    )
-}
+  const history = useHistory();
+  const navItems = [
+    { title: "My Store", path: "/" },
+    { title: "My Collections", path: "/list" },
+    { title: "Add Item", path: "/add" },
+    { title: "Settings", path: "/setting" },
+  ];
+  const activeItem =
+    navItems.filter((e) => history.location.pathname.includes(e.path)).pop() ||
+    navItems[0];
+  return (
+    <Menu
+      mode="inline"
+      defaultSelectedKeys={[activeItem.path]}
+      style={{
+        height: "100%",
+        borderRight: 0,
+        paddingTop: 20,
+        fontWeight: "500",
+      }}
+    >
+      {navItems.map(({ title, path }) => (
+        <Menu.Item key={path}>
+          <Link to={path}>{title}</Link>
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+};

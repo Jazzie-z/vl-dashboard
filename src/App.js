@@ -1,12 +1,14 @@
-import { isSignedIn } from 'firebase/authentication';
-import React from 'react';
-import { Auth } from 'routes/Auth';
-import { Private } from 'routes/Private'
-import './App.less'
-
+import { UserContextProvider } from "contexts/user.context";
+import React from "react";
+import { Routes } from "routes";
+import "./App.less";
 
 function App() {
-  return (isSignedIn() ? <Private /> : <Auth />);
+  return (
+    <UserContextProvider>
+      <Routes />
+    </UserContextProvider>
+  );
 }
 
 export default App;
