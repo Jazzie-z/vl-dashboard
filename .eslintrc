@@ -6,7 +6,7 @@
     "node": true,
     "jest": true
   },
-  "extends": [ "prettier", "prettier/react"],
+  "extends": ["airbnb", "prettier", "prettier/react"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
@@ -15,14 +15,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "prettier",
-    "json",
-    "react-hooks",
-    "import"
-  ],
+  "plugins": ["react", "jsx-a11y", "prettier", "json", "react-hooks", "import"],
   "ignorePatterns": ["**/*.md"],
   "settings": {
     "import/resolver": {

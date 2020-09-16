@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Upload, Modal, Card } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import firebase, { db, storage } from "firebase/setup";
+import { storage } from "firebase/setup";
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -47,10 +47,10 @@ export const ImageUpload = ({ setImages }) => {
     }
   };
 
-  const handleChange = ({ fileList }) => {
+  const handleChange = ({ fileList: payload }) => {
     // setImages(fileList)
-    console.error(fileList);
-    setFileList(fileList);
+    console.error(payload);
+    setFileList(payload);
   };
   const uploadButton = (
     <div>
@@ -59,14 +59,14 @@ export const ImageUpload = ({ setImages }) => {
     </div>
   );
   return (
-    <Card title={"Image"}>
+    <Card title="Image">
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         listType="picture-card"
         fileList={fileList}
         onPreview={handlePreview}
         onChange={handleChange}
-        multiple={true}
+        multiple
         customRequest={customUpload}
       >
         {fileList.length >= 8 ? null : uploadButton}
