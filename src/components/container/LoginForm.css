@@ -1,0 +1,20 @@
+.title{
+    font-size: 42px;
+    margin-bottom: 40px;
+    color: white;
+    text-align: center;
+}
+.login-form {
+    width: 60%;
+}
+.login-form-forgot {
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+}
+.login-form-button {
+    background-color: #a09be7;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+}
