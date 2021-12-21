@@ -1,0 +1,33 @@
+<<  MAC (Custom commands) >>
+
+function untilfail()
+{
+if [[ $1 == "" ]];
+  then
+    echo 'task to execute is missing'
+  else
+    while "$@"; do :; done && say test-failed
+  fi
+}
+
+alias yt='yarn test:watch'
+alias branchclean="git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D" 
+
+
+<< GIT HACKS >>
+
+TO FIX COMMITS ( :warning:  only before creating PR)
+git add 
+git absorb --and-rebase
+git push -f
+
+TO create new BRANCH:
+git checkout -b "<branch name>" master  => master will be the parent branch
+TO make your local branch same as remote
+git reset --hard origin/<branch-name>
+git push -f
+
+TO change the parent branch of your current branch
+git checkout <your new branch>
+git rebase --onto <master> <previous parent branch/n-1commit-id> // n=first commit of you want in your branch
+git push -f
